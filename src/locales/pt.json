@@ -1,0 +1,11 @@
+{
+  "title": "CHÁ REVELAÇÃO",
+  "pressStart": "APERTE QUALQUER TECLA PARA COMEÇAR",
+  "chooseGender": "ACHO QUE O BEBÊ É",
+  "loading": "Carregando...",
+  "oops": "Errou, era {{gender}}!",
+  "itsA": "É {{gender}}!",
+  "unknown": "Ainda não sabemos, volte mais tarde!",
+  "boy": "menino",
+  "girl": "menina"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "GENDER REVEAL",
+  "pressStart": "PRESS ANY KEY TO START",
+  "chooseGender": "I THINK THE BABY IS A",
+  "loading": "Loading...",
+  "oops": "Oops, it was a {{gender}}!",
+  "itsA": "It's a {{gender}}!",
+  "unknown": "We don't know yet, check back later!",
+  "boy": "boy",
+  "girl": "girl"
+}
