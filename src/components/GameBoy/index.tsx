@@ -8,7 +8,7 @@ import "./index.css";
 const GameBoy: FC = () => {
   const [stage, setStage] = useState<"intro" | "select" | "result">("intro");
   const [selectedGender, setSelectedGender] = useState<Gender>("none");
-  const expectedGender: Gender = "girl";
+  const expectedGender: Gender | null = null;
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   const transitionTo = (stage: "intro" | "select" | "result") => {

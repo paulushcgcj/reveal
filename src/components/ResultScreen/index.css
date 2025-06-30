@@ -59,7 +59,7 @@
     2px 0 0 #000,
     0 0 6px #fff,
     0 0 12px #ffe800;
-  animation: blink 1.2s step-start infinite;
+  animation: blink 2s step-start infinite;
   z-index: 10;
 }
 
