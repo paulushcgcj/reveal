@@ -1,0 +1,65 @@
+.select-screen-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.select-screen-inner {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  object-fit: cover;
+  z-index: 0;
+  image-rendering: pixelated;
+}
+
+.overlay {
+  position: absolute;
+  width: 440px;
+  height: auto;
+  z-index: 1;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  image-rendering: pixelated;
+}
+
+
+.baby-boy {
+  top: 40%;
+  left: 25%;
+  image-rendering: pixelated;
+}
+
+.baby-girl {
+  top: 40%;
+  left: 51%;
+  image-rendering: pixelated;
+}
+
+.hovered {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.selected {
+  outline: 6px solid yellow;
+  border-radius: 16px;
+  z-index: 3;
+}
+
+.focused {
+  box-shadow: 0 0 20px 8px rgba(255, 255, 0, 0.6);
+}

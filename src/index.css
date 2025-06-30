@@ -1,0 +1,13 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: black;
+  overflow: hidden;
+}
