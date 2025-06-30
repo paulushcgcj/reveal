@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import bgImage from "@/assets/no-char-selected.png";
 import babyBoy from "@/assets/baby-boy.png";
 import babyGirl from "@/assets/baby-girl.png";
@@ -16,7 +17,8 @@ const ResultScreen:  React.FC<ResultScreenProps> = ({ expected, selected }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [resultText, setResultText] = useState("");
   const [scale, setScale] = useState(1);
-   const bgm = useRef(new Audio(bgmFile));
+  const bgm = useRef(new Audio(bgmFile));
+  const { t } = useTranslation();
 
   const updateScale = () => {
     const container = containerRef.current;
@@ -27,7 +29,7 @@ const ResultScreen:  React.FC<ResultScreenProps> = ({ expected, selected }) => {
     setScale(Math.min(scaleX, scaleY));
   };
 
-   const handleStart = () => {
+  const handleStart = () => {
     
   };
 
@@ -53,14 +55,14 @@ const ResultScreen:  React.FC<ResultScreenProps> = ({ expected, selected }) => {
 
   useEffect(() => {
     if (!expected) {
-      setResultText("We don't know yet, check back later!");
+      setResultText(t("unknown"));
     } else if (selected === expected) {
-      setResultText(`It's a ${expected.toUpperCase()}!`);
+      setResultText(t('itsA',{gender: (t(expected.toLowerCase())).toUpperCase()}));
     } else {
-      setResultText(`Oops, it was a ${expected.toUpperCase()}!`);
+      setResultText(t('oops',{gender: (t(expected.toLowerCase())).toUpperCase()}));
     }
     console.log(`Expected: ${expected}, Selected: ${selected}`);
-  }, [selected, expected]);
+  }, [selected, expected, t]);
   
   return (
   <div

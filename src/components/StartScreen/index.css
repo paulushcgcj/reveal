@@ -55,11 +55,13 @@
 .title-text {
   position: absolute;
   top: 20px;
-  left: 55%;
+  left: 50%;
   transform: translateX(-50%);
   font-family: 'Press Start 2P', cursive;
   font-size: 8rem;
   color: #ffe800;
+  z-index: 10;
+  text-align: center;
   text-shadow:
     /* pixel border (black) */
     -2px -2px 0 #000,
@@ -77,6 +79,13 @@
     0 0 18px #ffe800;
 }
 
+.main-screen-loading p {
+  font-family: 'Press Start 2P', cursive;
+  font-size: "1.5rem";
+  text-align: "center";
+  color: "white";
+}
+
 .press-start-text {
   position: absolute;
   bottom: 80px;
@@ -85,7 +94,7 @@
   font-family: 'Press Start 2P', cursive;
   font-size: 4rem;
   color: #ffe800;
-  animation: blink 1s step-start infinite;
+  animation: blink 1.5s step-start infinite;
   z-index: 10;
   text-shadow:
     /* pixel border (black) */

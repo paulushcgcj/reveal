@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import bgImage from "@/assets/no-char-selected.png";
 import babyBoy from "@/assets/baby-boy.png";
 import babyGirl from "@/assets/baby-girl.png";
@@ -16,6 +17,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onSelect }) => {
   const [scale, setScale] = useState(1);
   const [pulseDirection, setPulseDirection] = useState<"boy" | "girl">("boy");
   const bgm = useRef(new Audio(bgmFile));
+    const { t } = useTranslation();
 
   const updateScale = () => {
     const container = containerRef.current;
@@ -83,7 +85,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ onSelect }) => {
           style={{ transform: `scale(${scale})`, transformOrigin: "top left" }}
         >
           <img src={bgImage} alt="Background" className="bg-image" />
-          <p className="title-text">Gender Reveal</p>
+          <p className="title-text">{t("title")}</p>
 
           <img
             src={babyBoy}
@@ -99,20 +101,11 @@ const StartScreen: React.FC<StartScreenProps> = ({ onSelect }) => {
               pulseDirection === "girl" ? "pulse-grow" : "pulse-shrink"
             }`}
           />
-          <p className="press-start-text">PRESS ANY KEY TO START</p>
+          <p className="press-start-text">{t("pressStart")}</p>
         </div>
       ) : (
         <div className="main-screen-loading">
-          <p
-            style={{
-              fontFamily: "'Press Start 2P', cursive",
-              fontSize: "24px",
-              textAlign: "center",
-              color: "white",
-            }}
-          >
-            Loading...
-          </p>
+          <p>{t("loading")}</p>
         </div>
       )}
     </div>

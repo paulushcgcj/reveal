@@ -8,7 +8,7 @@ import './index.css'
 const GameBoy:  React.FC = () => {
   const [stage, setStage] = useState<"intro" | "select" | "result">("intro");
   const [selectedGender, setSelectedGender] = useState<Gender>("none")
-  const expectedGender: Gender = "girl"; // This can be set dynamically or passed as a prop
+  const expectedGender: Gender = "girl";
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   const transitionTo = (stage: "intro" | "select" | "result") => {

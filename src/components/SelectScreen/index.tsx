@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import bgImage from "@/assets/no-char-selected.png";
 import babyBoy from "@/assets/baby-boy.png";
 import babyGirl from "@/assets/baby-girl.png";
@@ -17,6 +18,8 @@ const SelectScreen: React.FC<SelectScreenProps> = ({ onSelect }) => {
   const [hovered, setHovered] = useState<Gender | null>(null);
   const [selected, setSelected] = useState<Gender | null>(null);
   const [currentFocus, setCurrentFocus] = useState<Gender>("none");
+  const { t } = useTranslation();
+  
 
   const hoverSound = useRef(new Audio(hoverSoundFile));
   const selectSound = useRef(new Audio(selectSoundFile));
@@ -98,6 +101,8 @@ const SelectScreen: React.FC<SelectScreenProps> = ({ onSelect }) => {
         style={{ transform: `scale(${scale})`, transformOrigin: "top left" }}
       >
       <img src={bgImage} alt="Background" className="bg-image" />
+
+      <p className="gender-title">{t('chooseGender')}</p>
 
       <img 
         src={babyBoy} 
