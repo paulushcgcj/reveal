@@ -1,4 +1,4 @@
-import {type FC, useEffect, useRef, useState } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import bgImage from "@/assets/no-char-selected.png";
 import babyBoy from "@/assets/baby-boy.png";
@@ -19,7 +19,6 @@ const SelectScreen: FC<SelectScreenProps> = ({ onSelect }) => {
   const [selected, setSelected] = useState<Gender | null>(null);
   const [currentFocus, setCurrentFocus] = useState<Gender>("none");
   const { t } = useTranslation();
-  
 
   const hoverSound = useRef(new Audio(hoverSoundFile));
   const selectSound = useRef(new Audio(selectSoundFile));
@@ -33,7 +32,7 @@ const SelectScreen: FC<SelectScreenProps> = ({ onSelect }) => {
     const scaleY = offsetHeight / DESIGN_HEIGHT;
     setScale(Math.min(scaleX, scaleY));
   };
-  
+
   const playHover = () => {
     const s = hoverSound.current.cloneNode() as HTMLAudioElement;
     s.volume = 0.5;
@@ -93,21 +92,20 @@ const SelectScreen: FC<SelectScreenProps> = ({ onSelect }) => {
     };
   }, [currentFocus]);
 
-
   return (
     <div ref={containerRef} className="select-screen-container">
-    <div
+      <div
         className="select-screen-inner"
         style={{ transform: `scale(${scale})`, transformOrigin: "top left" }}
       >
-      <img src={bgImage} alt="Background" className="bg-image" />
+        <img src={bgImage} alt="Background" className="bg-image" />
 
-      <p className="gender-title">{t('chooseGender')}</p>
+        <p className="gender-title">{t("chooseGender")}</p>
 
-      <img 
-        src={babyBoy} 
-        alt="Baby Boy" 
-        className={`overlay baby-boy 
+        <img
+          src={babyBoy}
+          alt="Baby Boy"
+          className={`overlay baby-boy 
             ${hovered === "boy" ? "hovered" : ""}
             ${hovered === "girl" ? "grayscale" : ""}
             ${selected === "boy" ? "selected" : ""}
@@ -119,9 +117,9 @@ const SelectScreen: FC<SelectScreenProps> = ({ onSelect }) => {
           onTouchEnd={() => setHovered(null)}
           onClick={() => handleSelect("boy")}
         />
-      <img 
-          src={babyGirl} 
-          alt="Baby Girl" 
+        <img
+          src={babyGirl}
+          alt="Baby Girl"
           className={`overlay baby-girl 
             ${hovered === "girl" ? "hovered" : ""}
             ${hovered === "boy" ? "grayscale" : ""}
@@ -134,7 +132,7 @@ const SelectScreen: FC<SelectScreenProps> = ({ onSelect }) => {
           onTouchEnd={() => setHovered(null)}
           onClick={() => handleSelect("girl")}
         />
-    </div>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import { type FC } from "react";
-import './App.css'
-import GameBoy from '@/components/GameBoy'
-
+import "./App.css";
+import GameBoy from "@/components/GameBoy";
 
 const App: FC = () => {
   return (
@@ -9,6 +8,6 @@ const App: FC = () => {
       <GameBoy />
     </div>
   );
-}
+};
 
-export default App
+export default App;

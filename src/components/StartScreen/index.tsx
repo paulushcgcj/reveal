@@ -1,4 +1,4 @@
-import { type FC, useEffect, useRef, useState } from "react";
+import { type FC, useEffect, useRef, useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import bgImage from "@/assets/no-char-selected.png";
 import babyBoy from "@/assets/baby-boy.png";
@@ -16,8 +16,10 @@ const StartScreen: FC<StartScreenProps> = ({ onSelect }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [pulseDirection, setPulseDirection] = useState<"boy" | "girl">("boy");
+  const [started, setStarted] = useState(false);
+  const [canInteract, setCanInteract] = useState(false);
   const bgm = useRef(new Audio(bgmFile));
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
   const updateScale = () => {
     const container = containerRef.current;
@@ -30,9 +32,11 @@ const StartScreen: FC<StartScreenProps> = ({ onSelect }) => {
 
   const isReady = usePreloadAssets([bgImage, babyBoy, babyGirl], [bgmFile]);
 
-  const handleStart = () => {
+  const handleStart = useCallback(() => {
+    if (started) return;
+    setStarted(true);
     onSelect();
-  };
+  }, [started, onSelect]);
 
   useEffect(() => {
     updateScale();
@@ -63,8 +67,7 @@ const StartScreen: FC<StartScreenProps> = ({ onSelect }) => {
     const handleKey = () => handleStart();
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [isReady]);
-
+  }, [isReady, handleStart]);
 
   useEffect(() => {
     if (isReady) {
@@ -72,12 +75,19 @@ const StartScreen: FC<StartScreenProps> = ({ onSelect }) => {
     }
   }, [isReady]);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCanInteract(true);
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <div
       ref={containerRef}
       className="main-screen-container"
-      onClick={handleStart}
-      onTouchStart={handleStart}
+      onClick={() => canInteract && handleStart()}
+      onTouchStart={() => canInteract && handleStart()}
     >
       {isReady ? (
         <div

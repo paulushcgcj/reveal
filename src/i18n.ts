@@ -6,21 +6,21 @@ import en from "@/locales/en.json";
 import pt from "@/locales/pt.json";
 
 i18n
-.use(LanguageDetector)
-.use(initReactI18next)
-.init({
-  resources: {
-    en: { translation: en },
-    pt: { translation: pt },
-  },
-  fallbackLng: "en",
-  interpolation: {
-    escapeValue: false,
-  },
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { translation: en },
+      pt: { translation: pt },
+    },
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+    },
     detection: {
-    order: ["localStorage", "navigator", "htmlTag"],
-    caches: ["localStorage"],
-  },
-});
+      order: ["localStorage", "navigator", "htmlTag"],
+      caches: ["localStorage"],
+    },
+  });
 
 export default i18n;

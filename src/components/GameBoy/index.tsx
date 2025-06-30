@@ -1,13 +1,13 @@
 import { type FC, useState } from "react";
-import StartScreen from '@/components/StartScreen'
-import SelectScreen from '@/components/SelectScreen'
-import ResultScreen from "@/components/ResultScreen"
+import StartScreen from "@/components/StartScreen";
+import SelectScreen from "@/components/SelectScreen";
+import ResultScreen from "@/components/ResultScreen";
 import { type Gender } from "@/types";
-import './index.css'
+import "./index.css";
 
-const GameBoy:  FC = () => {
+const GameBoy: FC = () => {
   const [stage, setStage] = useState<"intro" | "select" | "result">("intro");
-  const [selectedGender, setSelectedGender] = useState<Gender>("none")
+  const [selectedGender, setSelectedGender] = useState<Gender>("none");
   const expectedGender: Gender = "girl";
   const [isFadingOut, setIsFadingOut] = useState(false);
 
@@ -17,11 +17,7 @@ const GameBoy:  FC = () => {
       setStage(stage);
       setIsFadingOut(false);
     }, 400);
-  }
-
-  const handleStart = () => {
-    transitionTo("select");
-  }
+  };
 
   const handleGenderSelect = (gender: Gender) => {
     setSelectedGender(gender);
@@ -33,7 +29,7 @@ const GameBoy:  FC = () => {
       {isFadingOut && <div className="screen-flash" />}
       {stage === "intro" && (
         <div className={`screen-wrapper ${isFadingOut ? "fade-out" : ""}`}>
-          <StartScreen onSelect={handleStart} />
+          <StartScreen onSelect={() => transitionTo("select")} />
         </div>
       )}
 
@@ -45,11 +41,16 @@ const GameBoy:  FC = () => {
 
       {stage === "result" && (
         <div className="screen-wrapper">
-          <ResultScreen key={`${selectedGender}-${expectedGender}`} expected={expectedGender} selected={selectedGender} />
+          <ResultScreen
+            key={`${selectedGender}-${expectedGender}`}
+            expected={expectedGender}
+            selected={selectedGender}
+            onRestart={() => transitionTo("intro")}
+          />
         </div>
       )}
     </div>
   );
-}
+};
 
-export default GameBoy
+export default GameBoy;
