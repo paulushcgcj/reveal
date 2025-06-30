@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import bgImage from "@/assets/no-char-selected.png";
 import babyBoy from "@/assets/baby-boy.png";
@@ -12,7 +12,7 @@ interface StartScreenProps {
   onSelect: () => void;
 }
 
-const StartScreen: React.FC<StartScreenProps> = ({ onSelect }) => {
+const StartScreen: FC<StartScreenProps> = ({ onSelect }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [pulseDirection, setPulseDirection] = useState<"boy" | "girl">("boy");

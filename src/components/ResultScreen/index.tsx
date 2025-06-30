@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { type FC, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import bgImage from "@/assets/no-char-selected.png";
 import babyBoy from "@/assets/baby-boy.png";
@@ -13,7 +13,7 @@ interface ResultScreenProps {
   selected: Gender | null;
 }
 
-const ResultScreen:  React.FC<ResultScreenProps> = ({ expected, selected }) => {
+const ResultScreen:  FC<ResultScreenProps> = ({ expected, selected }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [resultText, setResultText] = useState("");
   const [scale, setScale] = useState(1);

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { type FC, useState } from "react";
 import StartScreen from '@/components/StartScreen'
 import SelectScreen from '@/components/SelectScreen'
 import ResultScreen from "@/components/ResultScreen"
 import { type Gender } from "@/types";
 import './index.css'
 
-const GameBoy:  React.FC = () => {
+const GameBoy:  FC = () => {
   const [stage, setStage] = useState<"intro" | "select" | "result">("intro");
   const [selectedGender, setSelectedGender] = useState<Gender>("none")
   const expectedGender: Gender = "girl";
@@ -23,7 +23,7 @@ const GameBoy:  React.FC = () => {
     transitionTo("select");
   }
 
-   const handleGenderSelect = (gender: Gender) => {
+  const handleGenderSelect = (gender: Gender) => {
     setSelectedGender(gender);
     transitionTo("result");
   };

@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "include": [
+    "vite.config.*",    
+    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "verbatimModuleSyntax": true,
+    "types": ["node"]
+  }
+}
