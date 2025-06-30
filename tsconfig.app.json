@@ -2,7 +2,6 @@
   "extends": "./tsconfig.base.json",
   "include": ["src/**/*", "src/**/*.ts", "src/**/*.tsx"],
   "compilerOptions": {
-    "composite": true,
     "lib": [
       "es2017",
       "dom",
