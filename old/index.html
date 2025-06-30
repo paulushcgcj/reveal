@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gender Reveal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="index.css" rel="stylesheet"> 
+</head>
+<body>
+  <div class="gba-container">
+
+    <img src="assets/gba.png" alt="GBA Frame" class="gba-frame" />    
+
+    <div class="screen-content">
+
+      <div class="screen screen-title">
+        <img src="assets/title.png" alt="Press Start" class="press-start-img" id="titleText" onclick="goToSelect()" />
+      </div>
+
+      <div class="screen screen-select">
+        <img src="assets/no-char-selected.png" alt="Select a baby" class="baby-select-bg-img" id="baby-bg" />
+        <img src="assets/baby-boy.png" alt="Select a boy" class="baby-select-boy-img" id="baby-boy" />
+        <img src="assets/baby-girl.png" alt="Select a girl" class="baby-select-girl-img" id="baby-girl" />
+        <div class="question">Are you a....</div>
+        <div class="choices">
+          <button class="sprite-button" onclick="checkAnswer('boy')">
+            <img src="assets/boy.png" alt="Boy" />
+            <div class="button-label" id="btn-boy">BOY</div>
+          </button>
+          <button class="sprite-button" onclick="checkAnswer('girl')">
+            <img src="assets/girl.png" alt="Girl" />
+            <div class="button-label" id="btn-girl">GIRL</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="screen screen-result">
+        <img src="assets/its-a-girl.png" alt="It's a girl" class="choice-img" onclick="goToTitle()" id="resultImage" />  
+        <div class="result-text-overlay" id="resultText"></div>      
+      </div>    
+      
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
+
